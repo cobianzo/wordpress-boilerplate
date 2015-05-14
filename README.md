@@ -28,9 +28,22 @@ To start the project
 
 To continue your project in github
 ------------------------------------------------------------------------------------------------------------------------------------------
-- gitignore: 
+- gitignore: set it up as you like it 
 	typical for WP, push the uploads/ folder if you want, but don't track wp-config.php, assets and load-latest-db.php
+- create your project in github, get the repository (we call it here https://github/REPOSITORY.git)
+- locally, Clone that repository and copy all files of this Boilerplate (except the .git hidden folder)	
 
+To create a stage server and sync with github
+------------------------------------------------------------------------------------------------------------------------------------------
+- create a token for the github project, as explained in https://help.github.com/articles/creating-an-access-token-for-command-line-use/
+	Edit deploy.php
+		-SECRET_ACCESS_TOKEN	(your-token-string: the one generated in github for that project)
+		-REMOTE_REPOSITORY		(https://github/REPOSITORY.git)
+		-BRANCH					(master?)		
+	Push changes
+- Check the deployment in your tage server http:/your-stage-server.com/deploy.php?sat=your-token-string
+		
+		
 
 Structure of the project for development:
 ------------------------------------------------------------------------------------------------------------------------------------------
