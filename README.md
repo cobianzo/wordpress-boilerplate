@@ -7,24 +7,28 @@ This is the Wordpress project for [...] website.
 
 To start the project
 ------------------------------------------------------------------------------------------------------------------------------------------
-- Clone the project from github 
+- Clone the project from github or simply download it
 - Make sure wp-content is writtable. If working locally, make it 777 to avoid problems
 - rename wp-config-sample.php into wp-config.php and set it set up
-- Create DB from phpmyAdmin or CLI
-	- If you want to import the database in boilerplate, it is in www/wp-config/backup-db:		
+- edit load-latest-db.php
+- delete .gitignore and rename gitignore.txt into .gitignore. Have a look to it to see if you are happy with it
+- If you want to make php deployments edit deploy.php, (see next sections).
+- Create DB from phpmyAdmin or CLI with the name given in wp-config.php above
+	- If you want to import the database in boilerplate, it is in www/wp-config/backup-db:		Open the file
 		- load-latest-db.php.  Set up the $replacements depending on the environments where you work. Look for 
 			- "SITEURL" => "http://localhost:8080/myprojectfolder",
 			and replace with the right home url of your project. Add more lines like this replacing SITEURL with other environments root url to be able to sync with other colaborators or environments.
 			Then your url would be http://localhost/myproject/www
-		- it will create a user called "boilerplate" and pw "Boilerplate"
+		- open in a browser http://yourproyectfolder/load-latest-db.php
+		- it will create a user called "boilerplate" and pw "Boilerplate". Login at http://yourproyectfolder/www/wp-login.php
 	- If you decide to install WP from scratch:
 		- Install it normally and login in WP - Activate theme and plugins
 
-- Set up DB Management Options. In Local Mac with XAMPP it would be (db path and mysql paths ):
+- Once logged in, Set up DB Management Options. In Local Mac with XAMPP it would be (db path and mysql paths ):
     - /Applications/XAMPP/xamppfiles/htdocs/{your_project}/www/wp-content/backup-db
     - /Applications/XAMPP/xamppfiles/bin/mysqldump
     - /Applications/XAMPP/xamppfiles/bin/mysql
-- Check: Make a backup with Database -> Backup DB
+- Just Check: Make a backup with Database -> Backup DB
 	- check out the db file is in wp-content/backup-db
 	- run load-latest-db-php, check that it replaced the db ok. 
 
