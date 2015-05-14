@@ -9,7 +9,7 @@ To start the project
 ------------------------------------------------------------------------------------------------------------------------------------------
 - Clone the project from github 
 - Make sure wp-content is writtable. If working locally, make it 777 to avoid problems
-- wp-config.php set up
+- rename wp-config-sample.php into wp-config.php and set it set up
 - Create DB from phpmyAdmin or CLI
 	- If you want to import the database in boilerplate, it is in www/wp-config/backup-db:		
 		- load-latest-db.php.  Set up the $replacements depending on the environments where you work. Look for 
