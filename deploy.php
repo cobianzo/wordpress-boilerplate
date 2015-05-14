@@ -28,7 +28,7 @@ if (file_exists(basename(__FILE__, '.php').'-config.php')) require_once basename
  
  	SETUP HERE:
  */
-if (!defined('SECRET_ACCESS_TOKEN')) define('SECRET_ACCESS_TOKEN', '3ca7b8f490c757b69c0f35d5d935a9f98a241c7b');
+if (!defined('SECRET_ACCESS_TOKEN')) define('SECRET_ACCESS_TOKEN', 'your-secret-token');
 
 /**
  * The address of the remote Git repository that contains the code that's being
@@ -38,7 +38,7 @@ if (!defined('SECRET_ACCESS_TOKEN')) define('SECRET_ACCESS_TOKEN', '3ca7b8f490c7
  * @var string
   	SETUP HERE:
  */
-if (!defined('REMOTE_REPOSITORY')) define('REMOTE_REPOSITORY', 'https://github.com/cobianzo/interactive-map.git');
+if (!defined('REMOTE_REPOSITORY')) define('REMOTE_REPOSITORY', 'https://github.com/your-github-project.git');
 
 /**
  * The branch that's being deployed.
@@ -47,7 +47,7 @@ if (!defined('REMOTE_REPOSITORY')) define('REMOTE_REPOSITORY', 'https://github.c
  * @var string
   	SETUP HERE:
  */
-if (!defined('BRANCH')) define('BRANCH', 'wordpress');
+if (!defined('BRANCH')) define('BRANCH', 'master');
 
 /**
  * The location that the code is going to be deployed to.
@@ -56,7 +56,7 @@ if (!defined('BRANCH')) define('BRANCH', 'wordpress');
  * @var string Full path including the trailing slash
   	SETUP HERE:
  */
-if (!defined('TARGET_DIR')) define('TARGET_DIR', '/home/cobianzo/cobianzo.com/map/');
+if (!defined('TARGET_DIR')) define('TARGET_DIR', '/www/your-root-path-server');
 
 
 
