@@ -10,14 +10,16 @@ To start the project
 - Clone the project from github 
 - Make sure wp-content is writtable. If working locally, make it 777 to avoid problems
 - wp-config.php set up
-- Create DB from phpmyAdmin and install WP, or import your database according to your base url.
-	- If you want to import the clean database, it is in www/wp-config/backup-db:
-		- it will create a user called "cobianzo" and pw "Boilerplate"
+- Create DB from phpmyAdmin or CLI
+	- If you want to import the database in boilerplate, it is in www/wp-config/backup-db:		
+		- load-latest-db.php.  Set up the $replacements depending on the environments where you work. Look for 
+			- "SITEURL" => "http://localhost:8080/myprojectfolder",
+			and replace with the right home url of your project. Add more lines like this replacing SITEURL with other environments root url to be able to sync with other colaborators or environments.
+			Then your url would be http://localhost/myproject/www
+		- it will create a user called "boilerplate" and pw "Boilerplate"
 	- If you decide to install WP from scratch:
 		- Install it normally and login in WP - Activate theme and plugins
-- load-latest-db.php.  Set up the $replacements depending on the environments where you work. Look for 
-		"SITEURL" => "http://localhost:8080/conrad/www",
-		and replace with the right home url of your project. Add more lines like this replacing SITEURL with other environments root url to be able to sync with other colaborators or environments
+
 - Set up DB Management Options. In Local Mac with XAMPP it would be (db path and mysql paths ):
     - /Applications/XAMPP/xamppfiles/htdocs/{your_project}/www/wp-content/backup-db
     - /Applications/XAMPP/xamppfiles/bin/mysqldump
@@ -28,7 +30,8 @@ To start the project
 
 To continue your project in github
 ------------------------------------------------------------------------------------------------------------------------------------------
-- gitignore: set it up as you like it 
+- Get the project following the previous instructions or downloading it, as you wish
+- gitignore: Use the gitignore.txt renaming it (or set it up as you like it )
 	typical for WP, push the uploads/ folder if you want, but don't track wp-config.php, assets and load-latest-db.php
 - create your project in github, get the repository (we call it here https://github/REPOSITORY.git)
 - locally, Clone that repository and copy all files of this Boilerplate (except the .git hidden folder)	
@@ -44,12 +47,12 @@ To create a stage server and sync with github
 - Place deploy.php with FTP in your stage server and check the deployment http:/your-stage-server.com/deploy.php?sat=your-token-string
 - Create the database in your server
 - move to a safe folder (your deskrop, for ex) wp-config.php and load-latest-db.php in your local, commit it to delete from github
-- Make sure wp-config is in gitignore (to make exclude it). And make gitignore work. In Terminal:
+- Make sure wp-config is in gitignore (to make exclude it. If you followe the previous section it will be ok). And make gitignore work. In Terminal:
 	>    git rm -r --cached .
 	>    git commit -m ".gitignore is now working"
 	Then commit and push everything from SourceTree
 	- In server, via FTP
-	- set up wp-config.php
+	- set up wp-config.php, renaming wp-config-sample.php and editing it
 	- change replacements in load-latest-db.php
 	- make sure that in deploy.php we don't sync (exclude section) wp-config.php or load-latest-db.php
 		
@@ -66,6 +69,9 @@ Structure of the project for development:
 	By loading this script in the browser, the latest database in /db-dump/ will be loaded in wp_cobianzo2.
 
 
+TO-dO
+------------------------------------------------------------------------------------------------------------------------------------
+Integrate twitter bootstrap in the theme, with sass, and including it in styles and scripts.
 
 
 Theme
