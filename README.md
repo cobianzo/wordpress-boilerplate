@@ -44,11 +44,14 @@ To create a stage server and sync with github
 - Place deploy.php with FTP in your stage server and check the deployment http:/your-stage-server.com/deploy.php?sat=your-token-string
 - Create the database in your server
 - move to a safe folder (your deskrop, for ex) wp-config.php and load-latest-db.php in your local, commit it to delete from github
-- Make sure wp-config is in gitignore (to make exclude it). And make gitignore work.
-
-	- make
+- Make sure wp-config is in gitignore (to make exclude it). And make gitignore work. In Terminal:
+	>    git rm -r --cached .
+	>    git commit -m ".gitignore is now working"
+	Then commit and push everything from SourceTree
+	- In server, via FTP
 	- set up wp-config.php
 	- change replacements in load-latest-db.php
+	- make sure that in deploy.php we don't sync (exclude section) wp-config.php or load-latest-db.php
 		
 		
 

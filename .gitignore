@@ -8,6 +8,7 @@ wp-content/uploads/
 sitemap.xml
 load-latest-db.php
 wp-config.php
+deploy.php
 *.log
 
 sitemap.xml.gz
