@@ -1,6 +1,6 @@
 <?php
 /*
- *  Author: Todd Motto | @toddmotto
+ *  Author: Todd Motto | @toddmotto, modified by Cobianzo Communication: @cobianzoco
  *  URL: html5blank.com | @html5blank
  *  Custom functions, support, custom post types and more.
  */
@@ -10,6 +10,9 @@
 \*------------------------------------*/
 
 // Load any external files you have here
+include_once("functions-custom-posts.php");
+include_once("functions-acf.php");
+
 
 /*------------------------------------*\
 	Theme Support
@@ -22,15 +25,14 @@ if (!isset($content_width))
 
 if (function_exists('add_theme_support'))
 {
-    // Add Menu Support
+
     add_theme_support('menus');
 
-    // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
     add_image_size('large', 700, '', true); // Large Thumbnail
     add_image_size('medium', 250, '', true); // Medium Thumbnail
     add_image_size('small', 120, '', true); // Small Thumbnail
-    add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+//    add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(
@@ -52,7 +54,7 @@ if (function_exists('add_theme_support'))
     ));*/
 
     // Enables post and comment RSS feed links to head
-    add_theme_support('automatic-feed-links');
+    // add_theme_support('automatic-feed-links');
 
     // Localisation Support
     load_theme_textdomain('html5blank', get_template_directory() . '/languages');
@@ -103,7 +105,7 @@ function html5blank_header_scripts()
     }
 }
 
-// Load HTML5 Blank conditional scripts
+// Load HTML5 Blank conditional scripts - loading in a particular page
 function html5blank_conditional_scripts()
 {
     if (is_page('pagenamehere')) {
@@ -122,7 +124,7 @@ function html5blank_styles()
     wp_enqueue_style('html5blank'); // Enqueue it!
 }
 
-// Register HTML5 Blank Navigation
+// Register HTML5 Blank Navigation - by default 3 menus
 function register_html5_menu()
 {
     register_nav_menus(array( // Using array to specify more menus if needed
@@ -274,12 +276,12 @@ function remove_thumbnail_dimensions( $html )
 }
 
 // Custom Gravatar in Settings > Discussion
-function html5blankgravatar ($avatar_defaults)
+/* function html5blankgravatar ($avatar_defaults)
 {
     $myavatar = get_template_directory_uri() . '/img/gravatar.jpg';
     $avatar_defaults[$myavatar] = "Custom Gravatar";
     return $avatar_defaults;
-}
+} */
 
 // Threaded Comments
 function enable_threaded_comments()
@@ -384,54 +386,28 @@ add_filter('image_send_to_editor', 'remove_thumbnail_dimensions', 10); // Remove
 // Remove Filters
 remove_filter('the_excerpt', 'wpautop'); // Remove <p> tags from Excerpt altogether
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Shortcodes
 add_shortcode('html5_shortcode_demo', 'html5_shortcode_demo'); // You can place [html5_shortcode_demo] in Pages, Posts now.
 add_shortcode('html5_shortcode_demo_2', 'html5_shortcode_demo_2'); // Place [html5_shortcode_demo_2] in Pages, Posts now.
 
 // Shortcodes above would be nested like this -
 // [html5_shortcode_demo] [html5_shortcode_demo_2] Here's the page title! [/html5_shortcode_demo_2] [/html5_shortcode_demo]
-
-/*------------------------------------*\
-	Custom Post Types
-\*------------------------------------*/
-
-// Create 1 Custom Post type for a Demo, called HTML5-Blank
-function create_post_type_html5()
-{
-    register_taxonomy_for_object_type('category', 'html5-blank'); // Register Taxonomies for Category
-    register_taxonomy_for_object_type('post_tag', 'html5-blank');
-    register_post_type('html5-blank', // Register Custom Post Type
-        array(
-        'labels' => array(
-            'name' => __('HTML5 Blank Custom Post', 'html5blank'), // Rename these to suit
-            'singular_name' => __('HTML5 Blank Custom Post', 'html5blank'),
-            'add_new' => __('Add New', 'html5blank'),
-            'add_new_item' => __('Add New HTML5 Blank Custom Post', 'html5blank'),
-            'edit' => __('Edit', 'html5blank'),
-            'edit_item' => __('Edit HTML5 Blank Custom Post', 'html5blank'),
-            'new_item' => __('New HTML5 Blank Custom Post', 'html5blank'),
-            'view' => __('View HTML5 Blank Custom Post', 'html5blank'),
-            'view_item' => __('View HTML5 Blank Custom Post', 'html5blank'),
-            'search_items' => __('Search HTML5 Blank Custom Post', 'html5blank'),
-            'not_found' => __('No HTML5 Blank Custom Posts found', 'html5blank'),
-            'not_found_in_trash' => __('No HTML5 Blank Custom Posts found in Trash', 'html5blank')
-        ),
-        'public' => true,
-        'hierarchical' => true, // Allows your posts to behave like Hierarchy Pages
-        'has_archive' => true,
-        'supports' => array(
-            'title',
-            'editor',
-            'excerpt',
-            'thumbnail'
-        ), // Go to Dashboard Custom HTML5 Blank post for supports
-        'can_export' => true, // Allows export in Tools > Export
-        'taxonomies' => array(
-            'post_tag',
-            'category'
-        ) // Add Category and Post Tags support
-    ));
-}
 
 /*------------------------------------*\
 	ShortCode Functions
