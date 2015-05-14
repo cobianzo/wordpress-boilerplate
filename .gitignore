@@ -7,6 +7,7 @@ wp-content/backups/
 wp-content/uploads/
 sitemap.xml
 load-latest-db.php
+wp-config.php
 *.log
 
 sitemap.xml.gz

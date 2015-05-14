@@ -42,6 +42,10 @@ To create a stage server and sync with github
 		-BRANCH					(master?)		
 	Push changes
 - Place deploy.php with FTP in your stage server and check the deployment http:/your-stage-server.com/deploy.php?sat=your-token-string
+- Create the database in your server
+- Make sure wp-config is in gitignore (to make exclude it).
+	- set up wp-config.php
+	- change replacements in load-latest-db.php
 		
 		
 
