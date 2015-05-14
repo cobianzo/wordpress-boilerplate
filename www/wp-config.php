@@ -8,7 +8,7 @@ $is_local_env	= (strpos($_SERVER['HTTP_HOST'], "localhost") !== false);
 /* LOCAL ENVIRONMENT */	/* $_SERVER['HTTP_HOST'}  localhost:8080,   [SERVER_NAME] => localhost */
 
 if ($is_local_env) {
-	define('DB_NAME', 'wp_conrad');
+	define('DB_NAME', 'wp_yourdatabase');
 	define('DB_USER', 'root');
 	define('DB_PASSWORD', '');
 	define('DB_HOST', 'localhost');

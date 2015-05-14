@@ -12,11 +12,11 @@ To start the project
 - wp-config.php set up
 - Create DB from phpmyAdmin and install WP, or import your database according to your base url.
 	- If you want to import the clean database, it is in www/wp-config/backup-db:
-		- it will create a user called "cobianzo" and pw "Boilerplate"
+		- it will create a user called "boilerplate" and pw "Boilerplate"
 	- If you decide to install WP from scratch:
 		- Install it normally and login in WP - Activate theme and plugins
 - load-latest-db.php.  Set up the $replacements depending on the environments where you work. Look for 
-		"SITEURL" => "http://localhost:8080/conrad/www",
+		"SITEURL" => "http://localhost:8080/conrad",
 		and replace with the right home url of your project. Add more lines like this replacing SITEURL with other environments root url to be able to sync with other colaborators or environments
 - Set up DB Management Options. In Local Mac with XAMPP it would be (db path and mysql paths ):
     - /Applications/XAMPP/xamppfiles/htdocs/{your_project}/www/wp-content/backup-db
@@ -41,7 +41,17 @@ To create a stage server and sync with github
 		-REMOTE_REPOSITORY		(https://github/REPOSITORY.git)
 		-BRANCH					(master?)		
 	Push changes
-- Check the deployment in your tage server http:/your-stage-server.com/deploy.php?sat=your-token-string
+- Create the database in your server
+- move to a safe folder (your deskrop, for ex) wp-config.php and load-latest-db.php in your local, commit it to delete from github
+- Make sure wp-config is in gitignore (to make exclude it). And make gitignore work. In Terminal:
+	>    git rm -r --cached .
+	>    git commit -m ".gitignore is now working"
+	Then commit and push everything from SourceTree
+	- In server, via FTP
+	- set up wp-config.php
+	- change replacements in load-latest-db.php
+	- make sure that in deploy.php we don't sync (exclude section) wp-config.php or load-latest-db.php
+- Place deploy.php with FTP in your stage server and check the deployment http:/your-stage-server.com/deploy.php?sat=your-token-string
 		
 		
 
@@ -52,8 +62,7 @@ Structure of the project for development:
 	- contains a bunch of the development databases used along time. Most of them will include dummy data.
 	- These databases are created with the plugin DB Management. You can create you own script if you wish
 - load-latest-db.php
-	It's independent from the git project (every developer might have different settings on it). load-latest-db-dump-sample.php is a template to be used and renamed by any developer in this project.
-	By loading this script in the browser, the latest database in /db-dump/ will be loaded in wp_cobianzo2.
+	It's independent from the git project (every developer might have different settings on it). 
 
 
 

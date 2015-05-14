@@ -1,14 +1,15 @@
 <?php
 include_once("./www/wp-config.php");
 
-$mysql_host = DB_HOST;
+$mysql_host 	= DB_HOST;
 $mysql_username = DB_USER;
 $mysql_password = DB_PASSWORD;
 $mysql_database = DB_NAME;
 
 /* REPETIR pero en lugar de SITEURL, poner Las urls de los otros posibles environments */  
 $replacements = array(
-	"SITEURL" => "http://localhost:8080/conrad/www",  // don't put the '/' at the end
+	"SITEURL" => "http://localhost:8080/conrad",  // don't put the '/' at the end - REPLACE THIS IN YOUR STAGE SERVER
+	'utf8mb4' => 'utf8',  // if your mysql server doesnt accept utf8mb4
 );
 //    IN LOCALHOST REF TO PATH ARE  /Applications/XAMPP/xamppfiles/htdocs/conrad/www 
 //    IN LOCALHOST REF TO SERVER ARE  /Applications/XAMPP/xamppfiles/   {en caso de db manager:  bin/mysqldump y bin/mysql } 
