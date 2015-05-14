@@ -75,8 +75,8 @@ Structure of the project for development:
 
 TO-dO
 ------------------------------------------------------------------------------------------------------------------------------------
-Integrate twitter bootstrap in the theme, with sass, and including it in styles and scripts.
-
+- Integrate twitter bootstrap in the theme, with sass, and including it in styles and scripts.
+- Include in the documentation the github routes for every project and WP, to make it easier to keep it up to date.
 
 Theme
 ------------------------------------------------------------------------------------------------------------------------------------
@@ -90,8 +90,14 @@ PARAMS in wp-config.php
 - There are some other params that be set up:
 
  
-
-
+To keep this project up to date
+------------------------------------------------------------------------------------------------------------------------------------------
+- Get latest WP (git or download)
+- Get every latest plugin (git or download)
+- Use wp-config-sample.php as it is.
+- Keep /uploads (optional)
+- Keep /wp-content/backup-db/ and the insider db
+- Use load-latest-db.php and deploy.php as it is
 
 
 
