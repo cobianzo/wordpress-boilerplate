@@ -41,7 +41,7 @@ To create a stage server and sync with github
 		-REMOTE_REPOSITORY		(https://github/REPOSITORY.git)
 		-BRANCH					(master?)		
 	Push changes
-- Check the deployment in your tage server http:/your-stage-server.com/deploy.php?sat=your-token-string
+- Place deploy.php with FTP in your stage server and check the deployment http:/your-stage-server.com/deploy.php?sat=your-token-string
 		
 		
 
