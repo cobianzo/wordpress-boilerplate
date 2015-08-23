@@ -6,7 +6,6 @@ wp-content/cache/
 wp-content/backups/
 wp-content/uploads/
 sitemap.xml
-load-latest-db.php
 wp-config.php
 deploy.php
 *.log
@@ -15,7 +14,6 @@ sitemap.xml.gz
 wp-config.php
 .sass-cache/
 svil/
-assets/
 
 # shortcuts in MAC
 * alias   

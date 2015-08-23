@@ -1,24 +1,33 @@
 <?php
-include_once("./www/wp-config.php");
+include_once("../wp-config.php");
 
-$mysql_host 	= DB_HOST;
+$mysql_host     = DB_HOST;
 $mysql_username = DB_USER;
 $mysql_password = DB_PASSWORD;
 $mysql_database = DB_NAME;
 
-/* REPETIR pero en lugar de SITEURL, poner Las urls de los otros posibles environments */  
+/* REPETIR pero en lugar de SITEURL, poner Las urls de los otros posibles environments */
+$is_localhost_env       = (strpos($_SERVER['HTTP_HOST'], "localhost") !== false);
+$is_localhost8080_env   = (strpos($_SERVER['HTTP_HOST'], "localhost:8080") !== false);
+$is_mitreum_env         = (strpos($_SERVER['HTTP_HOST'], "mitreum") !== false);
+
+$siteurl      = 'http://localhost:8080/hacia-el-este';  // <<  ---- CHANGE THIS. To replace
+
 $replacements = array(
-	"BASEURL" => "http://localhost:8080/myprojectfolder",  // don't put the '/' at the end - REPLACE THIS IN YOUR STAGE SERVER - then in the browser your wp will be at http://localhost:8080/myprojectfolder/www
-	'utf8mb4' => 'utf8',  // if your mysql server doesnt accept utf8mb4
-);
-//    IN LOCALHOST REF TO PATH ARE  /Applications/XAMPP/xamppfiles/htdocs/myprojectfolder/www 
-//    IN LOCALHOST REF TO SERVER ARE  /Applications/XAMPP/xamppfiles/   {en caso de db manager:  bin/mysqldump y bin/mysql } 
-  
-  
-$filename = listdirfile_by_date('www/wp-content/backup-db');  // dont add the '/' at the end
-  
-  
-/* Toma el último .sql del path pasado */  
+        'http://localhost:8080/hacia-el-este' => $siteurl,  // don't put the '/' at the end - REPLACE THIS IN YOUR STAGE SERVER - then in the browser your wp will be at http://localhost:8080/myprojectfolder/www
+        'http://localhost/hacia-el-este' => $siteurl,  // don't put the '/' at the end - REPLACE THIS IN YOUR STAGE SERVER - then in the browser your wp will be at http://localhost:8080/myprojectfolder/www
+        'http://www.mitreum.net' => $siteurl,  // don't put the '/' at the end - REPLACE THIS IN YOUR STAGE SERVER - then in the browser your wp will be at http://localhost:8080/myprojectfolder/www
+        'utf8mb4' => 'utf8',  // if your mysql server doesnt accept utf8mb4
+    );
+
+//    IN LOCALHOST REF TO PATH ARE  /Applications/XAMPP/xamppfiles/htdocs/myprojectfolder/www
+//    IN LOCALHOST REF TO SERVER ARE  /Applications/XAMPP/xamppfiles/   {en caso de db manager:  bin/mysqldump y bin/mysql }
+
+
+$filename = listdirfile_by_date('../    wp-content/backup-db');  // dont add the '/' at the end
+
+
+/* Toma el último .sql del path pasado */
 function listdirfile_by_date($path)
 {
     $dir = opendir($path);
@@ -31,9 +40,9 @@ function listdirfile_by_date($path)
         }
     }
     closedir($dir);
-    
+
     krsort($list);
-	
+
     foreach($list as $key => $value)
     {
         return $path.'/'.$list[$key];
@@ -55,22 +64,22 @@ mysql_connect($mysql_host, $mysql_username, $mysql_password) or die('Error conne
 
 /*
 
- 	drop all tables of the current db.
- 	TO_DO: make a backup first?
- 	
+    drop all tables of the current db.
+    TO_DO: make a backup first?
+
 */
 
  mysql_query("DROP DATABASE $mysql_database");
  mysql_query("CREATE DATABASE $mysql_database");
- 
- 
 
- mysql_select_db($mysql_database) or die('Error selecting MySQL database: ' . mysql_error()); 
+
+
+ mysql_select_db($mysql_database) or die('Error selecting MySQL database: ' . mysql_error());
 
  mysql_query("USE DATABASE $mysql_database");
 
 /*
-	NOW IMPORT THE FILE 
+    NOW IMPORT THE FILE
 
 */
 
@@ -109,7 +118,7 @@ if (substr(trim($line), -1, 1) == ';')
     $templine = '';
 }
 }
- echo "Tables imported successfully<br>";
+ echo "<br><br>Tables imported successfully<br>";
 
 
 /*echo "Manual fixes <br>";
