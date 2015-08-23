@@ -1,51 +1,83 @@
 <?php
-// ** MySQL settings ** //
+/**
+ * The base configuration for WordPress
+ *
+ * The wp-config.php creation script uses this file during the
+ * installation. You don't have to use the web site, you can
+ * copy this file to "wp-config.php" and fill in the values.
+ *
+ * This file contains the following configurations:
+ *
+ * * MySQL settings
+ * * Secret keys
+ * * Database table prefix
+ * * ABSPATH
+ *
+ * @link https://codex.wordpress.org/Editing_wp-config.php
+ *
+ * @package WordPress
+ */
 
-#print_r($_SERVER); die();
+// ** MySQL settings - You can get this info from your web host ** //
+/** The name of the database for WordPress */
+define('DB_NAME', 'database_name_here');
 
+/** MySQL database username */
+define('DB_USER', 'username_here');
 
-$is_local_env	= (strpos($_SERVER['HTTP_HOST'], "localhost") !== false);
-/* LOCAL ENVIRONMENT */	/* $_SERVER['HTTP_HOST'}  localhost:8080,   [SERVER_NAME] => localhost */
+/** MySQL database password */
+define('DB_PASSWORD', 'password_here');
 
-if ($is_local_env) {
-	define('DB_NAME', 'wp_yourdatabase');
-	define('DB_USER', 'root');
-	define('DB_PASSWORD', '');
-	define('DB_HOST', 'localhost');
-	
-/* PRODUCTION ENVIRONMENT TO_DO: */
-}else {
-	define('DB_NAME', 'database_name_here');
-	define('DB_USER', 'username_here');
-	define('DB_PASSWORD', 'password_here');
-	define('DB_HOST', 'localhost');
-}
+/** MySQL hostname */
+define('DB_HOST', 'localhost');
 
-define('WP_DEBUG', $is_local_env);
-$table_prefix  = 'con_';
-
+/** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
+
+/** The Database Collate type. Don't change this if in doubt. */
 define('DB_COLLATE', '');
 
-if (strpos($_SERVER["SCRIPT_FILENAME"], 'load-latest-db.php')) return;
-
-
-/**#@+ * Authentication Unique Keys and Salts.
+/**#@+
+ * Authentication Unique Keys and Salts.
+ *
+ * Change these to different unique phrases!
  * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
  * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
+ *
+ * @since 2.6.0
  */
-define('AUTH_KEY',         '~H0m4U<;m>Z3`/E86N)U0[A[mCryzezuEoO}lnZG G]~8!c:WyIR?m?YN.AvM=Fc');
-define('SECURE_AUTH_KEY',  'LG+CP}N(ZBW}NybkQY$XhR&o!qI{pv56hL-b~7*l7=kOD3bx$x<-GZ6F|w+AEv?,');
-define('LOGGED_IN_KEY',    '5w}+bCvGxG<iFYgy6+1jD/lTQ>{CHnZdh5w[lcesMYD3Y|4y.;W0/Z5B|Erdxa`(');
-define('NONCE_KEY',        'X9RuAVWFa;%e-m|-btsM4#Ua~CRC8gt$PuIHc-r6Q,i%ehjNH`;Dh6-DTbSGtF:.');
-define('AUTH_SALT',        'nL-L_SF3G(Kcs,tyMfF(a_{2UVbL];+[onD?)OF{kp!hH{s_^ mls-m?,c<_x94i');
-define('SECURE_AUTH_SALT', '@vp+U)cM#z@-DtoJ3DcfIVW(cXM6pbA.K~/m~I+spRv>2LUcXgnL%iueE:*6 QBo');
-define('LOGGED_IN_SALT',   'kb0CS<Fa0w8>|ZQ_PB@Dz0dV-.,4oopvQfSRc|D|CoCNiw*ZlD1|U-?)^DH2jIF9');
-define('NONCE_SALT',       '`S<2VcyyeBGa|<jwu{!pc?oM+QAfb?a(MK-!N;+-fE.;+d-q~!Tpqzv>QdLihH_6');
+define('AUTH_KEY',         'put your unique phrase here');
+define('SECURE_AUTH_KEY',  'put your unique phrase here');
+define('LOGGED_IN_KEY',    'put your unique phrase here');
+define('NONCE_KEY',        'put your unique phrase here');
+define('AUTH_SALT',        'put your unique phrase here');
+define('SECURE_AUTH_SALT', 'put your unique phrase here');
+define('LOGGED_IN_SALT',   'put your unique phrase here');
+define('NONCE_SALT',       'put your unique phrase here');
+
 /**#@-*/
 
+/**
+ * WordPress Database Table prefix.
+ *
+ * You can have multiple installations in one database if you give each
+ * a unique prefix. Only numbers, letters, and underscores please!
+ */
+$table_prefix  = 'wp_';
 
-
+/**
+ * For developers: WordPress debugging mode.
+ *
+ * Change this to true to enable the display of notices during development.
+ * It is strongly recommended that plugin and theme developers use WP_DEBUG
+ * in their development environments.
+ *
+ * For information on other constants that can be used for debugging,
+ * visit the Codex.
+ *
+ * @link https://codex.wordpress.org/Debugging_in_WordPress
+ */
+define('WP_DEBUG', false);
 
 /* That's all, stop editing! Happy blogging. */
 
