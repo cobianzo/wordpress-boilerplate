@@ -30,7 +30,7 @@ To start the project
     - /Applications/XAMPP/xamppfiles/bin/mysql
 - Just Check: Make a backup with Database -> Backup DB
 	- check out the db file is in wp-content/backup-db
-	- run load-latest-db-php, check that it replaced the db ok. 
+	- run svil/load-latest-db-php, check that it replaced the db ok. 
 
 To continue your project in github
 ------------------------------------------------------------------------------------------------------------------------------------------
@@ -68,7 +68,7 @@ Structure of the project for development:
 - /www/wp-content/uploads/backup-db
 	- contains a bunch of the development databases used along time. Most of them will include dummy data.
 	- These databases are created with the plugin DB Management. You can create you own script if you wish
-- load-latest-db.php
+- svil/load-latest-db.php
 	It's independent from the git project (every developer might have different settings on it). load-latest-db-dump-sample.php is a template to be used and renamed by any developer in this project.
 	By loading this script in the browser, the latest database in /db-dump/ will be loaded in wp_cobianzo2.
 
