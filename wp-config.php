@@ -26,7 +26,7 @@ $table_prefix  = 'hee_';
 
 define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
-define('WPLANG', '');
+define('WPLANG', 'es_ES');
 define('WP_POST_REVISIONS', 3 );
 
 
