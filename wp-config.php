@@ -8,7 +8,7 @@ $is_local_env	= (strpos($_SERVER['HTTP_HOST'], "localhost") !== false);
 /* LOCAL ENVIRONMENT */	/* $_SERVER['HTTP_HOST'}  localhost:8080,   [SERVER_NAME] => localhost */
 
 if ($is_local_env) {
-	define('DB_NAME', 'wp_hacia_el_este');
+	define('DB_NAME', 'wp_20stories');
 	define('DB_USER', 'root');
 	define('DB_PASSWORD', '');
 	define('DB_HOST', 'localhost');
@@ -22,7 +22,7 @@ if ($is_local_env) {
 }
 
 define('WP_DEBUG', $is_local_env);
-$table_prefix  = 'hee_';
+$table_prefix  = '20s_';
 
 define('DB_CHARSET', 'utf8');
 define('DB_COLLATE', '');
