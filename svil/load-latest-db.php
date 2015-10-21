@@ -24,7 +24,7 @@ $replacements = array(
 //    IN LOCALHOST REF TO SERVER ARE  /Applications/XAMPP/xamppfiles/   {en caso de db manager:  bin/mysqldump y bin/mysql }
 
 
-$filename = listdirfile_by_date('../    wp-content/backup-db');  // dont add the '/' at the end
+$filename = listdirfile_by_date('../wp-content/backup-db');  // dont add the '/' at the end
 
 
 /* Toma el último .sql del path pasado */
